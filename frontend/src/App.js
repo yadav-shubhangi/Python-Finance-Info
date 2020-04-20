@@ -15,6 +15,7 @@ class App extends Component {
       percentChanges: null,
       result: false,
       error : false,
+      networkError: false,
       scrollMessage : false
     }
   }
@@ -48,6 +49,7 @@ class App extends Component {
           this.setState({
             result : true,
             error: false,
+            networkError: false,
             scrollMessage: true
           })
           this.clearData();
@@ -61,7 +63,7 @@ class App extends Component {
       }).catch(err => {
         console.log(`Error in calling api to fetch info ${err}`)
         this.setState({
-          error: true,
+          networkError: true,
           scrollMessage:false
         })
         this.clearResponseData();
@@ -134,7 +136,8 @@ class App extends Component {
             required
             class="form-control"
           />
-          {this.state.error ? <p className="text-center">Invalid stock symbol. Try again with valid data.</p> : <p></p>}
+          {this.state.networkError ? <p className="text-center">Network Error. Please try again.</p> : <p></p>}
+          {this.state.error ? <p className="text-center">Invalid stock symbol. Please try again with valid data.</p> : <p></p>}
           {this.state.scrollMessage ? <p className="text-center">Scroll down to see results.</p> : <p></p>}
           <div className="text-center">
             <button className="btn btn-primary margin-top" type="button" onClick={() => this.fetchInfo()}>Get Stock Finance Data</button>

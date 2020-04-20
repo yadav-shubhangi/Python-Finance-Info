@@ -26,7 +26,7 @@ def getStockInfo():
 
         print(currentDateTime)
         
-        url = f"https://sandbox.iexapis.com/stable/stock/{stockSymbol}/quote?token=Tpk_018b93ae93714677bc283c73c84cfa33"
+        url = "https://sandbox.iexapis.com/stable/stock/"+stockSymbol+"/quote?token=Tpk_018b93ae93714677bc283c73c84cfa33"
         print("URLLLL")
         print(url)
         r = requests.get(url)
