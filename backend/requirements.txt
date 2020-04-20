@@ -1,0 +1,8 @@
+Flask==1.1.1
+Flask-Cors==3.0.8
+request==2019.4.13
+response==0.4.0
+requests==2.22.0
+DateTime==4.3
+iexfinance==0.4.3
+pandas==1.0.1
