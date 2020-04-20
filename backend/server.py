@@ -6,7 +6,7 @@ import time
 
 app = Flask(__name__)
 cors = CORS(app)
-app.config["DEBUG"] = True
+# app.config["DEBUG"] = True
 
 
 @app.route('/getStockInfo', methods=['POST'])
@@ -70,4 +70,4 @@ def getStockInfo():
         resp = Response(response, status=200, mimetype='application/json')
         return resp
 
-app.run(host=0.0.0.0)
+app.run(host='0.0.0.0')
